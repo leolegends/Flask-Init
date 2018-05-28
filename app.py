@@ -2,9 +2,9 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route('/<name>')
-def main(name):
-	return 'hello %s' % name, 200
+@app.route('/<string:name>/<int:age>', methods=['GET'])
+def main(name, age):
+	return 'hello %s and my age %s' % (name, age), 200
 
 
 if __name__ == '__main__':
